@@ -10,7 +10,7 @@ public class UserMgmtSystem {
 
     private static void verificationUserInfo(User user) {
         if (user.login == null || user.login.isBlank() || user.pw == null || user.pw.isBlank()) {
-            throw new NullPointerException("Login 또는 비밀번호 값 누락");
+            throw new NullPointerException(" ID 또는 PW값 누락");
         }
         if (user.age < MINIMUM_ADULT_AGE) {
             throw new IllegalArgumentException(MINIMUM_ADULT_AGE+"세 미만은 가입 불가");

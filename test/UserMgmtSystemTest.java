@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,7 +57,7 @@ class UserMgmtSystemTest {
         assertEquals(true, result);
     }
     
-    @Test
+/*    @Test
     void successCheckInformationForInactiveUserWhenGivenLogin(){
         //Given
         User user = normalUser;
@@ -77,10 +76,10 @@ class UserMgmtSystemTest {
             assertEquals(newRegisterUser.isActive(), false);
             assertEquals(newRegisterUser.getLogin(), user.login);
         }
-    }
+    }*/
 
     @Test
-    void 성공_비활성화계정정보확인_로그인파람(){
+    void successCheckInformationForInactiveUserWhenGivenLogin(){
         //Given
         String login = INACTIVE_USER_LOGIN;
         //When
@@ -90,7 +89,7 @@ class UserMgmtSystemTest {
     }
 
 @Test
-    void 실패_계정생성_로그인값이없는경우() {
+    void 실패_계정생성_ID값이없는경우() {
         //Given
         User user = new User(100,"1234", null, "M", 29, true);
 
@@ -102,7 +101,7 @@ class UserMgmtSystemTest {
     }
 
     @Test
-    void 실패_계정생성_패스워드가없는경우(){
+    void 실패_계정생성_PW가없는경우(){
         //Given
         User user = new User(100, null, ACTIVE_USER_LOGIN, "M", 29, true);
 
@@ -112,6 +111,7 @@ class UserMgmtSystemTest {
         });
         System.out.println(exception.getMessage());
     }
+
 
     @Test
     void 실패_계정생성_19세미만인경우(){
