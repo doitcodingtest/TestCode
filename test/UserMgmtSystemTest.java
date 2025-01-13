@@ -38,22 +38,15 @@ class UserMgmtSystemTest {
         assertEquals(true, result);
     }
 
-    @Test
-    void 성공_활성화계정생성_모든속성포함(){
-        User user = new User(1,"test", "Kim", "M", 29, true);
-        boolean result = userMgmtSystem.registerUser(user);
-        assertEquals(true, result);
-    }
+//    @Test
+//    void successRegisterInactiveUserWhenGivenAllParam(){
+//        User user = new User(1,"test", "Kim", "M", 29, false);
+//        boolean result = userMgmtSystem.registerUser(user);
+//        assertEquals(true, result);
+//    }
 
     @Test
     void successRegisterInactiveUserWhenGivenAllParam(){
-        User user = new User(1,"test", "Kim", "M", 29, false);
-        boolean result = userMgmtSystem.registerUser(user);
-        assertEquals(true, result);
-    }
-
-    @Test
-    void 성공_비활성화계정생성_모든속성포함(){
         //Given
         User user = normalUser;
         user.setActive(false);

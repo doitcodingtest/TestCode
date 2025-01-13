@@ -15,7 +15,7 @@ public class AnnotationTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"5,5,10"})
+    @CsvSource(value = {"5,5,10","4,10,14","3,6,10"})
     void parameterTest(int number1, int number2, int expected) {
         Calculator calculator = new Calculator();
         int result = calculator.addTwoNumbers(number1, number2);

@@ -26,8 +26,8 @@ public class AssertionsTest {
     }
     @Test
     void AssertLinesMatchTest() {
-        List<String> expected = asList("A", "B");
-        List<String> actual = asList("A", "B");
+        List<String> expected = asList("Java", "\\d+", "JUnit");
+        List<String> actual = asList("Java", "1234", "JUnit");
         assertLinesMatch(expected, actual);
 
     }
