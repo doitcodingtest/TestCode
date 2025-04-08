@@ -89,7 +89,7 @@ class UserMgmtSystemTest {
     }
 
 @Test
-    void 실패_계정생성_ID값이없는경우() {
+    void 실패_계정생성_Login값이없는경우() {
         //Given
         User user = new User(100,"1234", null, "M", 29, true);
 
