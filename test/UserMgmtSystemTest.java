@@ -1,4 +1,5 @@
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,13 +15,18 @@ class UserMgmtSystemTest {
     static final int UNDER_ADULT_AGE = 18;
 
 
-    @BeforeAll
-    static void SetUp(){
+    @BeforeEach
+    void SetUp(){
         userMgmtSystem = new UserMgmtSystem();
         normalUser = new User(100,"1234", ACTIVE_USER_LOGIN, "M", 29, true);
         inactiveUser = new User(101,"1234", INACTIVE_USER_LOGIN, "M", 29, false);
         userMgmtSystem.registerUser(normalUser);
         userMgmtSystem.registerUser(inactiveUser);
+    }
+
+    @AfterEach
+    void tearDown(){
+        userMgmtSystem.clearAllUsers();
     }
 
     @Test
@@ -123,6 +129,19 @@ class UserMgmtSystemTest {
             userMgmtSystem.registerUser(user);
         });
         System.out.println(exception.getMessage());
+    }
+
+    @Test
+    void successUpdateUserAsInActive(){
+        //Given
+        User user = normalUser;
+        user.setActive(false);
+
+        //When
+        User updateUser = userMgmtSystem.updateUserActiveState(user);
+
+        //Then
+        assertEquals(false, updateUser.isActive());
     }
 
 }
