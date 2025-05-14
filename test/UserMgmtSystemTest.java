@@ -77,10 +77,10 @@ class UserMgmtSystemTest {
 
         if(result){  //Given
             //When
-            User newRegisterUser = userMgmtSystem.getUserByLogin(user.login);
+            User resultUser = userMgmtSystem.getUserByLogin(user.login);
             //Then
-            assertEquals(newRegisterUser.isActive(), false);
-            assertEquals(newRegisterUser.getLogin(), user.login);
+            assertEquals(resultUser.isActive(), false);
+            assertEquals(resultUser.getLogin(), user.login);
         }
     }*/
 
@@ -89,9 +89,9 @@ class UserMgmtSystemTest {
         //Given
         String login = INACTIVE_USER_LOGIN;
         //When
-        User newRegisterUser = userMgmtSystem.getUserByLogin(login);
+        User resultUser = userMgmtSystem.getUserByLogin(login);
         //Then
-        assertEquals(newRegisterUser, inactiveUser);
+        assertEquals(resultUser, inactiveUser);
     }
 
 @Test
